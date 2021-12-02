@@ -9,7 +9,7 @@ import Foundation
 
 enum Input {
     struct day1 {
-        static let part1sample = """
+        static let sample = """
             199
             200
             208
@@ -20,19 +20,30 @@ enum Input {
             269
             260
             263
-            """.split(whereSeparator: \.isNewline)
-            .compactMap{ $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            """.splitLines()
             .compactMap { Int($0) }
         
-        static let part1actual = Input.readFile("day1part1").split(whereSeparator: \.isNewline)
-            .compactMap{ $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+        static let actual = Input.readFile("day1")
+            .splitLines()
             .compactMap { Int($0) }
         
         static func format(_ string: String) -> [Int] {
-            return string.split(whereSeparator: \.isNewline)
-                .compactMap{ $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            return string.splitLines()
                 .compactMap { Int($0) }
         }
+    }
+    
+    struct day2 {
+        static let sample = """
+            forward 5
+            down 5
+            forward 8
+            up 3
+            down 8
+            forward 2
+            """.splitLines()
+        
+        static let actual = Input.readFile("day2").splitLines()
     }
     
     static func readFile(_ name: String) -> String {
@@ -41,6 +52,14 @@ enum Input {
         let string = try! String(contentsOfFile: path!, encoding: String.Encoding.utf8)
         return string
     }
+    
 }
 
 class InputMarker { }
+
+fileprivate extension String {
+    func splitLines() -> [String] {
+        return self.split(whereSeparator: \.isNewline)
+            .compactMap{ $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+    }
+}

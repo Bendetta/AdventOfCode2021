@@ -10,27 +10,47 @@ import XCTest
 
 class Tests_iOS: XCTestCase {
 
+    // MARK: Day 1
+    
     func test_day1Part1Sample() {
         let value = day1().runPart1Sample()
-        
         XCTAssertEqual(value, 7)
     }
     
     func test_day1Part1Actual() {
         let value = day1().runPart1Actual()
-        
         XCTAssertEqual(value, 1298)
     }
     
     func test_day1Part2Sample() {
         let value = day1().runPart2Sample()
-        
         XCTAssertEqual(value, 5)
     }
     
     func test_day1Part2Actual() {
         let value = day1().runPart2Actual()
-        
         XCTAssertEqual(value, 1248)
+    }
+    
+    // MARK: Day 2
+    
+    func test_day2Part1Sample() {
+        let value = day2().runPart1Sample()
+        XCTAssertEqual(value, 150)
+    }
+    
+    func test_day2Part1Actual() {
+        let value = day2().runPart1Actual()
+        XCTAssertEqual(value, 1936494)
+    }
+    
+    func test_day2Part2Sample() {
+        let value = day2().runPart2Sample()
+        XCTAssertEqual(value, 900)
+    }
+    
+    func test_day2Part2Actual() {
+        let value = day2().runPart2Actual()
+        XCTAssertEqual(value, 1997106066)
     }
 }

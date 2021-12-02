@@ -10,25 +10,25 @@ import Foundation
 struct day1 {
     
     func runPart1Sample() -> Int {
-        let input = Input.day1.part1sample
+        let input = Input.day1.sample
         
         return runPart1(input);
     }
     
     func runPart1Actual() -> Int {
-        let input = Input.day1.part1actual
+        let input = Input.day1.actual
         
         return runPart1(input);
     }
     
     func runPart2Sample() -> Int {
-        let input = Input.day1.part1sample
+        let input = Input.day1.sample
         
         return runPart2(input);
     }
     
     func runPart2Actual() -> Int {
-        let input = Input.day1.part1actual
+        let input = Input.day1.actual
         
         return runPart2(input);
     }
