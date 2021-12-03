@@ -46,6 +46,25 @@ enum Input {
         static let actual = Input.readFile("day2").splitLines()
     }
     
+    struct day3 {
+        static let sample = """
+            00100
+            11110
+            10110
+            10111
+            10101
+            01111
+            00111
+            11100
+            10000
+            11001
+            00010
+            01010
+            """.splitLines()
+        
+        static let actual = Input.readFile("day3").splitLines()
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"

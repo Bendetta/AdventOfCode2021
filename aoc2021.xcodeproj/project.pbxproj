@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D31974A275A565200D7ED33 /* day3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D319749275A565200D7ED33 /* day3.txt */; };
+		2D31974B275A565200D7ED33 /* day3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D319749275A565200D7ED33 /* day3.txt */; };
+		2D31974C275A565200D7ED33 /* day3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D319749275A565200D7ED33 /* day3.txt */; };
+		2D31974E275A56A300D7ED33 /* day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D31974D275A56A300D7ED33 /* day3.swift */; };
+		2D31974F275A56A300D7ED33 /* day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D31974D275A56A300D7ED33 /* day3.swift */; };
+		2D319750275A56A300D7ED33 /* day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D31974D275A56A300D7ED33 /* day3.swift */; };
 		2D9CB5912757CE7600205E98 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9CB5902757CE7600205E98 /* Tests_iOS.swift */; };
 		2D9CB5932757CE7600205E98 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9CB5922757CE7600205E98 /* Tests_iOSLaunchTests.swift */; };
 		2D9CB59D2757CE7600205E98 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9CB59C2757CE7600205E98 /* Tests_macOS.swift */; };
@@ -52,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D319749275A565200D7ED33 /* day3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day3.txt; sourceTree = "<group>"; };
+		2D31974D275A56A300D7ED33 /* day3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day3.swift; sourceTree = "<group>"; };
 		2D9CB5782757CE7400205E98 /* aoc2021App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aoc2021App.swift; sourceTree = "<group>"; };
 		2D9CB5792757CE7400205E98 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2D9CB57A2757CE7600205E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +132,7 @@
 				2D9CB5B72757CF6400205E98 /* puzzleInputs.swift */,
 				2D9CB5B42757CE9900205E98 /* day1.swift */,
 				2D9CB5CA2758FF4000205E98 /* day2.swift */,
+				2D31974D275A56A300D7ED33 /* day3.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -170,6 +179,7 @@
 			children = (
 				2D9CB5C12757D7D000205E98 /* day1.txt */,
 				2D9CB5CE2759044B00205E98 /* day2.txt */,
+				2D319749275A565200D7ED33 /* day3.txt */,
 			);
 			path = inputs;
 			sourceTree = "<group>";
@@ -300,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9CB5C32757D7FE00205E98 /* day1.txt in Resources */,
+				2D31974A275A565200D7ED33 /* day3.txt in Resources */,
 				2D9CB5A42757CE7600205E98 /* Assets.xcassets in Resources */,
 				2D9CB5CF2759044B00205E98 /* day2.txt in Resources */,
 			);
@@ -310,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9CB5C22757D7FC00205E98 /* day1.txt in Resources */,
+				2D31974B275A565200D7ED33 /* day3.txt in Resources */,
 				2D9CB5A52757CE7600205E98 /* Assets.xcassets in Resources */,
 				2D9CB5D02759044C00205E98 /* day2.txt in Resources */,
 			);
@@ -320,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9CB5C42757D7FF00205E98 /* day1.txt in Resources */,
+				2D31974C275A565200D7ED33 /* day3.txt in Resources */,
 				2D9CB5D12759044C00205E98 /* day2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +355,7 @@
 				2D9CB5B52757CE9900205E98 /* day1.swift in Sources */,
 				2D9CB5B82757CF6400205E98 /* puzzleInputs.swift in Sources */,
 				2D9CB5CB2758FF4000205E98 /* day2.swift in Sources */,
+				2D31974E275A56A300D7ED33 /* day3.swift in Sources */,
 				2D9CB5A02757CE7600205E98 /* aoc2021App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +368,7 @@
 				2D9CB5B62757CE9900205E98 /* day1.swift in Sources */,
 				2D9CB5B92757CF6400205E98 /* puzzleInputs.swift in Sources */,
 				2D9CB5CC2758FF4000205E98 /* day2.swift in Sources */,
+				2D31974F275A56A300D7ED33 /* day3.swift in Sources */,
 				2D9CB5A12757CE7600205E98 /* aoc2021App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +381,7 @@
 				2D9CB5BA2757D62A00205E98 /* day1.swift in Sources */,
 				2D9CB5BB2757D62D00205E98 /* puzzleInputs.swift in Sources */,
 				2D9CB5CD2758FF4000205E98 /* day2.swift in Sources */,
+				2D319750275A56A300D7ED33 /* day3.swift in Sources */,
 				2D9CB5912757CE7600205E98 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
