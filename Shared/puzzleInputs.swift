@@ -109,6 +109,16 @@ enum Input {
         static let actual = Input.readFile("day5").splitLines()
     }
     
+    struct day6 {
+        static let sample = parseInput("3,4,3,1,2")
+        
+        static let actual = parseInput(Input.readFile("day6"))
+        
+        private static func parseInput(_ input: String) -> [Int] {
+            return input.split(separator: ",").map { Int($0.trimmingCharacters(in: .whitespacesAndNewlines))! }
+        }
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"

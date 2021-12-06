@@ -119,4 +119,26 @@ class Tests_iOS: XCTestCase {
         let value = day5().runPart2Actual()
         XCTAssertEqual(value, 20271)
     }
+    
+    // MARK: Day 6
+    
+    func test_day6Part1Sample() {
+        let value = day6().runPart1Sample()
+        XCTAssertEqual(value, 5934)
+    }
+    
+    func test_day6Part1Actual() {
+        let value = day6().runPart1Actual()
+        XCTAssertEqual(value, 380758)
+    }
+    
+    func test_day6Part2Sample() {
+        let value = day6().runPart2Sample()
+        XCTAssertEqual(value, 26984457539)
+    }
+    
+    func test_day6Part2Actual() {
+        let value = day6().runPart2Actual()
+        XCTAssertEqual(value, 1710623015163)
+    }
 }
