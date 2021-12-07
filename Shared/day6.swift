@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct day6 {
+class day6: Puzzle {
     func runPart1Sample() -> Int {
         return runPart1(Input.day6.sample)
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct day2 {
+class day2: Puzzle {
     enum Direction {
         case forward(Int)
         case up(Int)
