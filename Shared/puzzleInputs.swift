@@ -146,6 +146,18 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
         static let actual = Input.readFile("day8").splitLines()
     }
     
+    struct day9 {
+        static let sample = """
+2199943210
+3987894921
+9856789892
+8767896789
+9899965678
+""".splitLines()
+        
+        static let actual = Input.readFile("day9").splitLines()
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"
