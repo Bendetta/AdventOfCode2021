@@ -175,6 +175,28 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
         static let actual = Input.readFile("day10").splitLines()
     }
     
+    struct day11 {
+        static let sample = """
+5483143223
+2745854711
+5264556173
+6141336146
+6357385478
+4167524645
+2176841721
+6882881134
+4846848554
+5283751526
+""".splitLines().map { convertLine($0) }
+        
+        static let actual = Input.readFile("day11").splitLines()
+            .map { convertLine($0) }
+        
+        private static func convertLine(_ line: String) -> [Int] {
+            return line.compactMap { Int(String($0))}
+        }
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"
