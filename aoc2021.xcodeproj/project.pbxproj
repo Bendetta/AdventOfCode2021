@@ -95,6 +95,12 @@
 		2DEBA2E42767107400DE9982 /* day12.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DEBA2E32767107400DE9982 /* day12.txt */; };
 		2DEBA2E52767107400DE9982 /* day12.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DEBA2E32767107400DE9982 /* day12.txt */; };
 		2DEBA2E62767107400DE9982 /* day12.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DEBA2E32767107400DE9982 /* day12.txt */; };
+		2DEBA2E827677F4900DE9982 /* day13.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DEBA2E727677F4900DE9982 /* day13.txt */; };
+		2DEBA2E927677F4900DE9982 /* day13.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DEBA2E727677F4900DE9982 /* day13.txt */; };
+		2DEBA2EA27677F4900DE9982 /* day13.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DEBA2E727677F4900DE9982 /* day13.txt */; };
+		2DEBA2EC27677F5B00DE9982 /* day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBA2EB27677F5B00DE9982 /* day13.swift */; };
+		2DEBA2ED27677F5B00DE9982 /* day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBA2EB27677F5B00DE9982 /* day13.swift */; };
+		2DEBA2EE27677F5B00DE9982 /* day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBA2EB27677F5B00DE9982 /* day13.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +159,8 @@
 		2DEBA2DB2766AD3300DE9982 /* day11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day11.swift; sourceTree = "<group>"; };
 		2DEBA2DF2767100300DE9982 /* day12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day12.swift; sourceTree = "<group>"; };
 		2DEBA2E32767107400DE9982 /* day12.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day12.txt; sourceTree = "<group>"; };
+		2DEBA2E727677F4900DE9982 /* day13.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day13.txt; sourceTree = "<group>"; };
+		2DEBA2EB27677F5B00DE9982 /* day13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day13.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +227,7 @@
 				2DB1E53B2763942B00D90C27 /* day10.swift */,
 				2DEBA2DB2766AD3300DE9982 /* day11.swift */,
 				2DEBA2DF2767100300DE9982 /* day12.swift */,
+				2DEBA2EB27677F5B00DE9982 /* day13.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -275,6 +284,7 @@
 				2DB1E53F2763943D00D90C27 /* day10.txt */,
 				2DEBA2D72766AC9100DE9982 /* day11.txt */,
 				2DEBA2E32767107400DE9982 /* day12.txt */,
+				2DEBA2E727677F4900DE9982 /* day13.txt */,
 			);
 			path = inputs;
 			sourceTree = "<group>";
@@ -415,6 +425,7 @@
 				2DEBA2D82766AC9100DE9982 /* day11.txt in Resources */,
 				2D9CB5CF2759044B00205E98 /* day2.txt in Resources */,
 				2D31978A2760E98700D7ED33 /* day8.txt in Resources */,
+				2DEBA2E827677F4900DE9982 /* day13.txt in Resources */,
 				2D319752275B307B00D7ED33 /* day4.txt in Resources */,
 				2D31979227624C9000D7ED33 /* day9.txt in Resources */,
 			);
@@ -435,6 +446,7 @@
 				2DEBA2D92766AC9100DE9982 /* day11.txt in Resources */,
 				2D9CB5D02759044C00205E98 /* day2.txt in Resources */,
 				2D31978B2760E98700D7ED33 /* day8.txt in Resources */,
+				2DEBA2E927677F4900DE9982 /* day13.txt in Resources */,
 				2D319753275B307B00D7ED33 /* day4.txt in Resources */,
 				2D31979327624C9000D7ED33 /* day9.txt in Resources */,
 			);
@@ -456,6 +468,7 @@
 				2D31979427624C9000D7ED33 /* day9.txt in Resources */,
 				2DB1E5422763943D00D90C27 /* day10.txt in Resources */,
 				2D319783275E611800D7ED33 /* day5.txt in Resources */,
+				2DEBA2EA27677F4900DE9982 /* day13.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +497,7 @@
 				2D9CB5CB2758FF4000205E98 /* day2.swift in Sources */,
 				2D31978E2760E9C200D7ED33 /* day8.swift in Sources */,
 				2D31974E275A56A300D7ED33 /* day3.swift in Sources */,
+				2DEBA2EC27677F5B00DE9982 /* day13.swift in Sources */,
 				2D31979627624CA900D7ED33 /* day9.swift in Sources */,
 				2D319766275E479400D7ED33 /* day6.swift in Sources */,
 				2DB1E53C2763942B00D90C27 /* day10.swift in Sources */,
@@ -507,6 +521,7 @@
 				2D9CB5CC2758FF4000205E98 /* day2.swift in Sources */,
 				2D31978F2760E9C200D7ED33 /* day8.swift in Sources */,
 				2D31974F275A56A300D7ED33 /* day3.swift in Sources */,
+				2DEBA2ED27677F5B00DE9982 /* day13.swift in Sources */,
 				2D31979727624CA900D7ED33 /* day9.swift in Sources */,
 				2D319767275E479400D7ED33 /* day6.swift in Sources */,
 				2DB1E53D2763942B00D90C27 /* day10.swift in Sources */,
@@ -530,6 +545,7 @@
 				2D31977B275E60B900D7ED33 /* Puzzle.swift in Sources */,
 				2D3197902760E9C200D7ED33 /* day8.swift in Sources */,
 				2D319776275E608A00D7ED33 /* day2.swift in Sources */,
+				2DEBA2EE27677F5B00DE9982 /* day13.swift in Sources */,
 				2D31979827624CA900D7ED33 /* day9.swift in Sources */,
 				2D319777275E608A00D7ED33 /* day3.swift in Sources */,
 				2DB1E53E2763942B00D90C27 /* day10.swift in Sources */,

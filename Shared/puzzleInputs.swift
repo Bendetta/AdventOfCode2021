@@ -222,6 +222,34 @@ start-RW
         static let actual = Input.readFile("day12").splitLines()
     }
     
+    struct day13 {
+        static let sample = """
+6,10
+0,14
+9,10
+0,3
+10,4
+4,11
+6,0
+6,12
+4,1
+0,13
+10,12
+3,4
+3,0
+8,4
+1,10
+2,14
+8,10
+9,0
+
+fold along y=7
+fold along x=5
+""".splitLines()
+        
+        static let actual = Input.readFile("day13").splitLines()
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"

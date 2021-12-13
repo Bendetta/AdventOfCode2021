@@ -9,7 +9,7 @@ import XCTest
 @testable import aoc2021
 
 class Tests_iOS: XCTestCase {
-
+    
     // MARK: Day 1
     
     func test_day1Part1Sample() {
@@ -272,5 +272,39 @@ class Tests_iOS: XCTestCase {
     func test_day12Part2Actual() {
         let value = day12().runPart2Actual()
         XCTAssertEqual(value, 119760)
+    }
+    
+    // MARK: Day 13
+    
+    func test_day13Part1Sample() {
+        let value = day13().runPart1Sample()
+        XCTAssertEqual(value, 17)
+    }
+    
+    func test_day13Part1Actual() {
+        let value = day13().runPart1Actual()
+        XCTAssertEqual(value, 724)
+    }
+    
+    func test_day13Part2Sample() {
+        let value = day13().runPart2Sample()
+        //        #####
+        //        #...#
+        //        #...#
+        //        #...#
+        //        #####
+        XCTAssertEqual(value, 16)
+    }
+    
+    func test_day13Part2Actual() {
+        let value = day13().runPart2Actual()
+        //            .##..###....##.###..####.###..#..#.#...
+        //            #..#.#..#....#.#..#.#....#..#.#..#.#...
+        //            #....#..#....#.###..###..#..#.#..#.#...
+        //            #....###.....#.#..#.#....###..#..#.#...
+        //            #..#.#....#..#.#..#.#....#.#..#..#.#...
+        //            .##..#.....##..###..####.#..#..##..####
+        //  CPJBERUL
+        XCTAssertEqual(value, 95)
     }
 }
