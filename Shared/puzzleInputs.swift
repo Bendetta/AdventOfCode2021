@@ -250,6 +250,30 @@ fold along x=5
         static let actual = Input.readFile("day13").splitLines()
     }
     
+    struct day14 {
+        static let sample = """
+NNCB
+
+CH -> B
+HH -> N
+CB -> H
+NH -> C
+HB -> C
+HC -> B
+HN -> C
+NN -> C
+BH -> H
+NC -> B
+NB -> B
+BN -> B
+BB -> N
+BC -> B
+CC -> N
+CN -> C
+""".components(separatedBy: "\n\n")
+        static let actual = Input.readFile("day14").components(separatedBy: "\n\n")
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"

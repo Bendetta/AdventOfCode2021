@@ -307,4 +307,26 @@ class Tests_iOS: XCTestCase {
         //  CPJBERUL
         XCTAssertEqual(value, 95)
     }
+    
+    // MARK: Day 14
+    
+    func test_day14Part1Sample() {
+        let value = day14().runPart1Sample()
+        XCTAssertEqual(value, 1588)
+    }
+    
+    func test_day14Part1Actual() {
+        let value = day14().runPart1Actual()
+        XCTAssertEqual(value, 2010)
+    }
+    
+    func test_day14Part2Sample() {
+        let value = day14().runPart2Sample()
+        XCTAssertEqual(value, 2188189693529)
+    }
+    
+    func test_day14Part2Actual() {
+        let value = day14().runPart2Actual()
+        XCTAssertEqual(value, 2437698971143)
+    }
 }
