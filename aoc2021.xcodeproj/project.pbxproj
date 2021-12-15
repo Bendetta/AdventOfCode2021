@@ -13,6 +13,12 @@
 		2D0DC8ED2768E11E00DC6B03 /* day14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DC8EC2768E11E00DC6B03 /* day14.swift */; };
 		2D0DC8EE2768E11E00DC6B03 /* day14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DC8EC2768E11E00DC6B03 /* day14.swift */; };
 		2D0DC8EF2768E11E00DC6B03 /* day14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DC8EC2768E11E00DC6B03 /* day14.swift */; };
+		2D0DC8F12769069400DC6B03 /* day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DC8F02769069400DC6B03 /* day15.swift */; };
+		2D0DC8F22769069400DC6B03 /* day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DC8F02769069400DC6B03 /* day15.swift */; };
+		2D0DC8F32769069400DC6B03 /* day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DC8F02769069400DC6B03 /* day15.swift */; };
+		2D0DC8F5276906AB00DC6B03 /* day15.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DC8F4276906AB00DC6B03 /* day15.txt */; };
+		2D0DC8F6276906AB00DC6B03 /* day15.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DC8F4276906AB00DC6B03 /* day15.txt */; };
+		2D0DC8F7276906AB00DC6B03 /* day15.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DC8F4276906AB00DC6B03 /* day15.txt */; };
 		2D31974A275A565200D7ED33 /* day3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D319749275A565200D7ED33 /* day3.txt */; };
 		2D31974B275A565200D7ED33 /* day3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D319749275A565200D7ED33 /* day3.txt */; };
 		2D31974E275A56A300D7ED33 /* day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D31974D275A56A300D7ED33 /* day3.swift */; };
@@ -129,6 +135,8 @@
 /* Begin PBXFileReference section */
 		2D0DC8E82768E0A000DC6B03 /* day14.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day14.txt; sourceTree = "<group>"; };
 		2D0DC8EC2768E11E00DC6B03 /* day14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day14.swift; sourceTree = "<group>"; };
+		2D0DC8F02769069400DC6B03 /* day15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day15.swift; sourceTree = "<group>"; };
+		2D0DC8F4276906AB00DC6B03 /* day15.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day15.txt; sourceTree = "<group>"; };
 		2D319749275A565200D7ED33 /* day3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day3.txt; sourceTree = "<group>"; };
 		2D31974D275A56A300D7ED33 /* day3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day3.swift; sourceTree = "<group>"; };
 		2D319751275B307B00D7ED33 /* day4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day4.txt; sourceTree = "<group>"; };
@@ -237,6 +245,7 @@
 				2DEBA2DF2767100300DE9982 /* day12.swift */,
 				2DEBA2EB27677F5B00DE9982 /* day13.swift */,
 				2D0DC8EC2768E11E00DC6B03 /* day14.swift */,
+				2D0DC8F02769069400DC6B03 /* day15.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 				2DEBA2E32767107400DE9982 /* day12.txt */,
 				2DEBA2E727677F4900DE9982 /* day13.txt */,
 				2D0DC8E82768E0A000DC6B03 /* day14.txt */,
+				2D0DC8F4276906AB00DC6B03 /* day15.txt */,
 			);
 			path = inputs;
 			sourceTree = "<group>";
@@ -433,6 +443,7 @@
 				2D9CB5A42757CE7600205E98 /* Assets.xcassets in Resources */,
 				2DEBA2E42767107400DE9982 /* day12.txt in Resources */,
 				2DEBA2D82766AC9100DE9982 /* day11.txt in Resources */,
+				2D0DC8F5276906AB00DC6B03 /* day15.txt in Resources */,
 				2D9CB5CF2759044B00205E98 /* day2.txt in Resources */,
 				2D0DC8E92768E0A000DC6B03 /* day14.txt in Resources */,
 				2D31978A2760E98700D7ED33 /* day8.txt in Resources */,
@@ -455,6 +466,7 @@
 				2D9CB5A52757CE7600205E98 /* Assets.xcassets in Resources */,
 				2DEBA2E52767107400DE9982 /* day12.txt in Resources */,
 				2DEBA2D92766AC9100DE9982 /* day11.txt in Resources */,
+				2D0DC8F6276906AB00DC6B03 /* day15.txt in Resources */,
 				2D9CB5D02759044C00205E98 /* day2.txt in Resources */,
 				2D0DC8EA2768E0A000DC6B03 /* day14.txt in Resources */,
 				2D31978B2760E98700D7ED33 /* day8.txt in Resources */,
@@ -471,6 +483,7 @@
 				2D31977D275E611800D7ED33 /* day6.txt in Resources */,
 				2D319782275E611800D7ED33 /* day3.txt in Resources */,
 				2D31977F275E611800D7ED33 /* day7.txt in Resources */,
+				2D0DC8F7276906AB00DC6B03 /* day15.txt in Resources */,
 				2DEBA2DA2766AC9100DE9982 /* day11.txt in Resources */,
 				2DEBA2E62767107400DE9982 /* day12.txt in Resources */,
 				2D319780275E611800D7ED33 /* day2.txt in Resources */,
@@ -510,6 +523,7 @@
 				2D9CB5CB2758FF4000205E98 /* day2.swift in Sources */,
 				2D31978E2760E9C200D7ED33 /* day8.swift in Sources */,
 				2D31974E275A56A300D7ED33 /* day3.swift in Sources */,
+				2D0DC8F12769069400DC6B03 /* day15.swift in Sources */,
 				2DEBA2EC27677F5B00DE9982 /* day13.swift in Sources */,
 				2D31979627624CA900D7ED33 /* day9.swift in Sources */,
 				2D319766275E479400D7ED33 /* day6.swift in Sources */,
@@ -535,6 +549,7 @@
 				2D9CB5CC2758FF4000205E98 /* day2.swift in Sources */,
 				2D31978F2760E9C200D7ED33 /* day8.swift in Sources */,
 				2D31974F275A56A300D7ED33 /* day3.swift in Sources */,
+				2D0DC8F22769069400DC6B03 /* day15.swift in Sources */,
 				2DEBA2ED27677F5B00DE9982 /* day13.swift in Sources */,
 				2D31979727624CA900D7ED33 /* day9.swift in Sources */,
 				2D319767275E479400D7ED33 /* day6.swift in Sources */,
@@ -560,6 +575,7 @@
 				2D31977B275E60B900D7ED33 /* Puzzle.swift in Sources */,
 				2D3197902760E9C200D7ED33 /* day8.swift in Sources */,
 				2D319776275E608A00D7ED33 /* day2.swift in Sources */,
+				2D0DC8F32769069400DC6B03 /* day15.swift in Sources */,
 				2DEBA2EE27677F5B00DE9982 /* day13.swift in Sources */,
 				2D31979827624CA900D7ED33 /* day9.swift in Sources */,
 				2D319777275E608A00D7ED33 /* day3.swift in Sources */,

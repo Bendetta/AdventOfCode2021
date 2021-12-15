@@ -274,6 +274,22 @@ CN -> C
         static let actual = Input.readFile("day14").components(separatedBy: "\n\n")
     }
     
+    struct day15 {
+        static let sample = """
+1163751742
+1381373672
+2136511328
+3694931569
+7463417111
+1319128137
+1359912421
+3125421639
+1293138521
+2311944581
+""".splitLines().map{ $0.toIntArray() }
+        static let actual = Input.readFile("day15").splitLines().map{ $0.toIntArray() }
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"
@@ -289,5 +305,9 @@ fileprivate extension String {
     func splitLines() -> [String] {
         return self.split(whereSeparator: \.isNewline)
             .compactMap{ $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+    }
+    
+    func toIntArray() -> [Int] {
+        return self.compactMap { char in Int(String(char)) }
     }
 }
