@@ -28,235 +28,250 @@ class day15: Puzzle {
     }
     
     private func runPart1(_ input: [[Int]]) -> Int {
-        let startTime = CFAbsoluteTimeGetCurrent()
-        print("start")
-        let edges = generateEdges(using: input)
-        let edgeTime = CFAbsoluteTimeGetCurrent()
-        print("generated \(edges.count): \(edgeTime - startTime)")
-        let graph = setupGraphwith(edges: edges)
-        let graphTime = CFAbsoluteTimeGetCurrent()
-        print("generated graph: \(graphTime - edgeTime)")
-        let endIdentifier = generateIdentifier(row: input.count-1, col: input[input.count-1].count-1, in: input)
-        let path = shortestPath(source: 0, destination: endIdentifier, graph: graph)
-        let pathTime = CFAbsoluteTimeGetCurrent()
-        print("found path: \(pathTime - graphTime)")
-        print("total: \(pathTime-startTime)")
-        printPath(graph: graph, input: input, path: path)
-        return path
+        let riskMap = RiskMap(input: input, withTiling: 1)
+        let distance = riskMap.getShortestPath()
+        riskMap.printPath()
+        return distance
     }
     
     private func runPart2(_ input: [[Int]]) -> Int {
-        return 0
+        let riskMap = RiskMap(input: input, withTiling: 5)
+        let distance = riskMap.getShortestPath()
+        riskMap.printPath()
+        return distance
     }
     
-    private func printPath(graph: Graph, input: [[Int]], path: Int) {
-        var string = ""
-        var distance = Array(repeating: Array(repeating: 0, count: input[0].count), count: input.count)
-        let possibleNodes = graph.nodes
-        for node in possibleNodes {
-            let rowIndex = node.identifier/input.count
-            let colIndex = node.identifier%input.count
-            distance[rowIndex][colIndex] = node.distance
-        }
+    class RiskMap {
+        let width, totalWidth: Int
+        let height, totalHeight: Int
+        let tiling: Int
         
-        let visitedNodes = findVisitedPaths(distanceArray: distance, visited: Set<String>(), row: input.count-1, col: input[0].count-1)
-        for row in 0..<input.count {
-            for col in 0..<input[row].count {
-                if visitedNodes.contains("\(row),\(col)") {
-                    string += "█"
-                } else {
-                    string += String(input[row][col])
-                }
-            }
-            string += "\n"
-        }
-        print(string)
-    }
-    
-    func findVisitedPaths(distanceArray: [[Int]], visited:Set<String>, row: Int, col: Int) -> Set<String> {
-        var updatedVisited = visited
-        updatedVisited.insert("\(row),\(col)")
-        if row == 0 && col == 0 {
-            return updatedVisited
-        }
-        var nextValues = [(Int,Int,Int)]()
-        if row > 0 {
-            nextValues.append((distanceArray[row-1][col], row-1, col))
-        }
-        if col > 0 {
-            nextValues.append((distanceArray[row][col-1], row, col-1))
-        }
-        if row < distanceArray.count - 1 {
-            nextValues.append((distanceArray[row+1][col], row+1, col))
-        }
-        if col < distanceArray[row].count - 1 {
-            nextValues.append((distanceArray[row][col+1], row, col+1))
-        }
-        if nextValues.count > 0 {
-            let smallest = nextValues.sorted(by: { $0.0 < $1.0 }).first!
-            return findVisitedPaths(distanceArray: distanceArray, visited: updatedVisited, row: smallest.1, col: smallest.2)
-        }
-        return updatedVisited
-    }
-    
-    func generateEdges(using input: [[Int]]) -> [[Int]] {
-        var edges = [[Int]]()
-        for row in 0..<input.count {
-            for col in 0..<input[row].count {
-                let currentNodeId = generateIdentifier(row: row, col: col, in: input)
-                if row > 0 {
-                    let nextNodeId = generateIdentifier(row: row-1, col: col, in: input)
-                    let nextNodeWeight = input[row-1][col]
-                    edges.append([currentNodeId,nextNodeId,nextNodeWeight])
-                }
-                if row < input.count - 1 {
-                    let nextNodeId = generateIdentifier(row: row+1, col: col, in: input)
-                    let nextNodeWeight = input[row+1][col]
-                    edges.append([currentNodeId,nextNodeId,nextNodeWeight])
-                }
-                if col > 0 {
-                    let nextNodeId = generateIdentifier(row: row, col: col-1, in: input)
-                    let nextNodeWeight = input[row][col-1]
-                    edges.append([currentNodeId,nextNodeId,nextNodeWeight])
-                }
-                if col < input[row].count - 1 {
-                    let nextNodeId = generateIdentifier(row: row, col: col+1, in: input)
-                    let nextNodeWeight = input[row][col+1]
-                    edges.append([currentNodeId,nextNodeId,nextNodeWeight])
-                }
-            }
-        }
-        return edges
-    }
-    
-    func generateIdentifier(row: Int, col: Int, in graph: [[Int]]) -> Int {
-        return graph[row].count * row + col
-    }
-    
-    // MARK: Graph Classes
-    
-    class Node : CustomStringConvertible {
-        // unique identifier required for each node
-        var identifier: Int
-        var distance: Int = Int.max
-        var edges = [Edge]()
-        var visited = false
+        let array: [Int]
+        var minCostAtIndex: [Int?]
         
-        var description: String {
-            var edgesString = String()
-            edges.forEach{  edgesString.append($0.description)}
-            return "{ Node, identifier: \(identifier.description) +  Edges: \(edgesString) + }"
-        }
-        
-        init(visited: Bool, identifier: Int, edges: [Edge]) {
-            self.visited = visited
-            self.identifier = identifier
-            self.edges = edges
-        }
-        
-        static func == (lhs: Node, rhs: Node) -> Bool {
-            return lhs.identifier == rhs.identifier
-        }
-    }
-    
-    class Edge {
-        var from: Node // does not actually need to be stored!
-        var to: Node
-        var weight: Int
-        var description : String {
-            return "{ Edge, from: \(from.identifier), to: \(to.identifier), weight: \(weight) }"
+        init(input: [[Int]], withTiling tiling: Int) {
+            self.tiling = tiling
+            self.width = input[0].count
+            self.height = input.count
+            self.array = input.flatMap { $0 }
             
+            
+            self.totalWidth = width * tiling
+            self.totalHeight = height * tiling
+            self.minCostAtIndex = [Int?](repeating: nil, count: totalWidth * totalHeight)
+            self.minCostAtIndex[0] = 0
         }
-        init(to: Node, from: Node, weight: Int) {
-            self.to = to
-            self.weight = weight
-            self.from = from
-        }
-    }
-    
-    class Graph {
-        var nodes: [Node] = []
         
-        func displayPath(colSize: Int) {
-            var string = ""
-            for (index,node) in nodes.enumerated() {
-                if index % colSize == 0 {
-                    string += "\n"
-                }
-                string += "\(node.distance)"
+        private func getIncrementalCost(x: Int, y: Int) -> Int {
+            let basicCost = Int(array[width * (y % height) + (x % width)])
+            
+            if tiling == 1 {
+                return basicCost
             }
-            string += "\n"
-            print(string)
+            
+            let tile_x = x / width
+            let tile_y = y / width
+            
+            return 1 + ((basicCost + tile_x + tile_y - 1) % 9)
         }
         
-        func selectedNodes() {
-            nodes.filter({ $0.visited }).forEach({
-                print($0)
-            })
-        }
-    }
-    
-    // Complete the quickestWayUp function below.
-    func setupGraphwith(edges: [[Int]]) -> Graph {
-        let graph = Graph()
-        
-        // create all the nodes
-        // The first and last node need to be included, so need nodes from "to" and "from"
-        let nodeNames = Set ( edges.map{ $0[0] } + edges.map{ $0[1]} )
-        for node in nodeNames {
-            let newNode = Node(visited: false, identifier: node, edges: [])
-            graph.nodes.append(newNode)
-        }
-        
-        // create all the edges to link the nodes
-        for edge in edges {
-            if let fromNode = graph.nodes.first(where: { $0.identifier == edge[0] }) {
-                if let toNode = graph.nodes.first(where: { $0.identifier == edge[1] }) {
-                    let forwardEdge = Edge(to: toNode, from: fromNode, weight: edge[2])
-                    fromNode.edges.append(forwardEdge)
-                }
-            }
-        }
-        return graph
-    }
-    
-    func shortestPath (source: Int, destination: Int, graph: Graph) -> Int {
-        
-        var currentNode = graph.nodes.first{ $0.identifier == source }!
-        currentNode.visited = true
-        currentNode.distance = 0
-        var toVisit = [Node]()
-        toVisit.append(currentNode)
-        while (!toVisit.isEmpty) {
-            toVisit = toVisit.filter{ $0.identifier != currentNode.identifier }
-            currentNode.visited = true
-            // Go to each adjacent vertex and update the path length
-            for connectedEdge in currentNode.edges {
-                let dist = currentNode.distance + connectedEdge.weight
+        func getShortestPath() -> Int {
+            var queue = Heap<QueueElem>()
+            queue.insert(QueueElem(x: 0, cost: 0))
+            
+            var inQueue = Set<Int>()
+            inQueue.insert(0)
+            
+            while let elem = queue.removeMax() {
+                let (index, minCost) = (elem.x, elem.cost)
+                inQueue.remove(index)
                 
-                if (dist < connectedEdge.to.distance) {
-                    connectedEdge.to.distance = dist
-                    toVisit.append(connectedEdge.to)
-                    if (connectedEdge.to.visited == true) {
+                let y = index / totalWidth
+                let x = index % totalWidth
+                
+                for (dx, dy) in [(-1, 0), (0, -1), (1, 0), (0, 1)] {
+                    
+                    let xx = x + dx
+                    let yy = y + dy
+                    
+                    if xx < 0 || xx >= totalWidth || yy < 0 || yy >= totalHeight {
+                        continue
+                    }
+                    
+                    let newIndex = totalWidth * yy + xx
+                    let incrementalCost = getIncrementalCost(x: xx, y: yy)
+                    
+                    let newCost = minCost + incrementalCost
+                    
+                    let oldCost = minCostAtIndex[newIndex]
+                    
+                    if oldCost == nil || oldCost! > newCost {
+                        minCostAtIndex[newIndex] = newCost
                         
-                        connectedEdge.to.visited = false
+                        if inQueue.insert(newIndex).inserted {
+                            queue.insert(QueueElem(x: newIndex, cost: newCost))
+                        }
                     }
                 }
             }
+            return minCostAtIndex[totalWidth * totalHeight - 1]!
+        }
+        
+        func printPath() {
+            var string = ""
             
-            currentNode.visited = true
-            //set current node to the smallest vertex
-            if !toVisit.isEmpty {
-                currentNode = toVisit.min(by: { (a, b) -> Bool in
-                    return a.distance < b.distance
-                })!
+            let visitedNodes = findVisitedPaths(visited: Set<Int>(), currentIndex: minCostAtIndex.count-1).sorted()
+            for row in 0..<totalHeight {
+                for col in 0..<totalWidth {
+                    let index = totalHeight * row + col
+                    if visitedNodes.contains(index) {
+                        string += "█"
+                    } else {
+                        string += String(getIncrementalCost(x: row, y: col))
+                    }
+                }
+                string += "\n"
+            }
+            print(string)
+        }
+        
+        private func findVisitedPaths(visited:Set<Int>, currentIndex: Int) -> Set<Int> {
+            var updatedVisited = visited
+            updatedVisited.insert(currentIndex)
+            if currentIndex == 0 {
+                return updatedVisited
+            }
+            let y = currentIndex / totalWidth
+            let x = currentIndex % totalWidth
+            
+            var nextValues = [(Int,Int)]()
+            if y > 0 {
+                let newIndex = totalWidth * (y-1) + x
+                if let newValue = minCostAtIndex[newIndex] {
+                    nextValues.append((newValue, newIndex))
+                }
+            }
+            if x > 0 {
+                let newIndex = totalWidth * y + (x-1)
+                if let newValue = minCostAtIndex[newIndex] {
+                    nextValues.append((newValue, newIndex))
+                }
+            }
+            if y < totalHeight - 1 {
+                let newIndex = totalWidth * (y+1) + x
+                if let newValue = minCostAtIndex[newIndex] {
+                    nextValues.append((newValue, newIndex))
+                }
+            }
+            if x < totalWidth - 1 {
+                let newIndex = totalWidth * y + (x+1)
+                if let newValue = minCostAtIndex[newIndex] {
+                    nextValues.append((newValue, newIndex))
+                }
+            }
+            if nextValues.count > 0 {
+                let smallest = nextValues.sorted(by: { $0.0 < $1.0 }).first!
+                return findVisitedPaths(visited: updatedVisited, currentIndex: smallest.1)
+            }
+            return updatedVisited
+        }
+    }
+    
+    struct Heap<T: Comparable> {
+        var elems: [T]
+        
+        init() {
+            self.elems = [T]()
+        }
+        
+        func parentIndex(of index: Int) -> Int? {
+            
+            assert(index < self.elems.count)
+            
+            if index == 0 {
+                return nil
             }
             
-            if (currentNode.identifier == destination) {
-                return currentNode.distance
+            return (index - 1) / 2
+        }
+        
+        mutating func insert(_ x: T) {
+            var i = self.elems.count
+            self.elems.append(x)
+            
+            while let parent = parentIndex(of: i) {
+                if self.elems[i] <= self.elems[parent] {
+                    return
+                }
+                
+                // heap[i] > heap[parent], heap-condition violated.
+                self.elems.swapAt(parent, i)
+                
+                // Fixed heap-condition at parent, now heap-condition at parent's
+                // parent may be violated.
+                
+                i = parent
             }
         }
         
-        return -1
+        mutating func removeMax() -> T? {
+            
+            if self.elems.isEmpty {
+                return nil
+            }
+            
+            if self.elems.count == 1 {
+                return self.elems.removeFirst()
+            }
+            
+            let result = self.elems.first
+            self.elems[0] = self.elems.removeLast()
+            
+            let n = self.elems.count
+            
+            var parent = 0
+            while parent < n {
+                
+                var x = self.elems[parent]
+                
+                var maxChildIndex: Int?
+                if (2 * parent + 1) < n && self.elems[2 * parent + 1] > x {
+                    x = self.elems[2 * parent + 1]
+                    maxChildIndex = 2 * parent + 1
+                }
+                
+                if (2 * parent + 2) < n && self.elems[2 * parent + 2] > x {
+                    x = self.elems[2 * parent + 2]
+                    maxChildIndex = 2 * parent + 2
+                }
+                
+                guard let maxChildIndex = maxChildIndex else {
+                    break
+                }
+                
+                self.elems.swapAt(parent, maxChildIndex)
+                parent = maxChildIndex
+            }
+            
+            return result
+        }
+        
+        var isEmpty: Bool {
+            self.elems.isEmpty
+        }
+        
+        var count: Int {
+            self.elems.count
+        }
+    }
+    
+    struct QueueElem: Comparable {
+        let x: Int
+        let cost: Int
+        
+        // Reverse order as my heap is a max-heap and we want to "removeMin" here.
+        static func <(lhs: QueueElem, rhs: QueueElem) -> Bool {
+            lhs.cost > rhs.cost
+        }
     }
 }

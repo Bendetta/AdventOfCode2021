@@ -349,6 +349,6 @@ class Tests_iOS: XCTestCase {
     
     func test_day15Part2Actual() {
         let value = day15().runPart2Actual()
-        XCTAssertEqual(value, 0)
+        XCTAssertEqual(value, 2914)
     }
 }
