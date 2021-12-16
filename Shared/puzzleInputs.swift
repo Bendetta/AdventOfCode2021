@@ -290,6 +290,12 @@ CN -> C
         static let actual = Input.readFile("day15").splitLines().map{ $0.toIntArray() }
     }
     
+    struct day16 {
+        static let sample = "A0016C880162017C3686B18A3D4780"
+        
+        static let actual = Input.readFile("day16").trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"
