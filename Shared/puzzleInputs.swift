@@ -296,6 +296,12 @@ CN -> C
         static let actual = Input.readFile("day16").trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
+    struct day17 {
+        static let sample = "target area: x=20..30, y=-10..-5"
+        
+        static let actual = Input.readFile("day17").trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"
