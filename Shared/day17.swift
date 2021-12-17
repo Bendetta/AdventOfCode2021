@@ -8,6 +8,8 @@
 import Foundation
 
 class day17: Puzzle {
+    typealias Velocity = (Int,Int)
+    
     func runPart1Sample() -> Int {
         return runPart1(Input.day17.sample)
     }
@@ -26,41 +28,41 @@ class day17: Puzzle {
     
     private func runPart1(_ input: String) -> Int {
         let targetArea = getTargetArea(input)
-        let candidates = generatePossibleVelocities(for: targetArea)
-        var highestProbe: Probe!
-        for velocity in candidates {
-            let probe = Probe(withVelocity: velocity)
-            if highestProbe == nil {
-                highestProbe = probe
-            }
-            var isFinished = false
-            while !isFinished {
-                isFinished = probe.move(towards: targetArea)
-            }
-            if targetArea.contains((probe.x, probe.y)) {
-                if highestProbe.highestAltitude < probe.highestAltitude {
-                    highestProbe = probe
-                }
-            }
-        }
-        return highestProbe.highestAltitude
+        let y = targetArea.y.min()!
+        // highest point is when velocity = 0, and y decreases by 1, so the sum of 0..<y
+        let sum = y*(y+1)/2;
+        return sum;
     }
     
     private func runPart2(_ input: String) -> Int {
         let targetArea = getTargetArea(input)
         let candidates = generatePossibleVelocities(for: targetArea)
-        var validShots = [(Int,Int)]()
+        var validShots = 0
         for velocity in candidates {
-            let probe = Probe(withVelocity: velocity)
-            var isFinished = false
-            while !isFinished {
-                isFinished = probe.move(towards: targetArea)
-            }
-            if targetArea.contains((probe.x, probe.y)) {
-                validShots.append(velocity)
+            if test(velocity: velocity, to: targetArea) {
+                validShots += 1
             }
         }
-        return validShots.count
+        return validShots
+    }
+    
+    private func test(velocity: Velocity, to target: TargetArea) -> Bool {
+        var x = 0, y = 0
+        var dx = velocity.0, dy = velocity.1
+        while y >= target.y.min()! {
+            x = x + dx
+            y = y + dy
+            dx = max(0, dx-1) // move to 0
+            dy -= 1
+            if target.x.contains(x) {
+                if target.y.contains(y) {
+                    return true
+                }
+            } else if dx == 0 {
+                break
+            }
+        }
+        return false
     }
     
     private func getTargetArea(_ string: String) -> TargetArea {
@@ -76,9 +78,11 @@ class day17: Puzzle {
         return TargetArea(x: xRange, y: yRange)
     }
     
-    private func generatePossibleVelocities(for target: TargetArea) -> [(Int,Int)] {
-        var velocities = [(Int,Int)]()
-        for x in 0...target.x.max()! {
+    private func generatePossibleVelocities(for target: TargetArea) -> [Velocity] {
+        var velocities = [Velocity]()
+        // lower bound is sum of integers from 1 to x, otherwise will never reach x before velocity is 0
+        let xVelocityMin = Int(sqrt(Double(target.x.min()!*2)))
+        for x in xVelocityMin...target.x.max()! {
             for y in target.y.min()!...abs(target.y.min()!) {
                 velocities.append((x,y))
             }
@@ -95,54 +99,5 @@ class day17: Puzzle {
         }
     }
     
-    class Probe {
-        var x = 0
-        var y = 0
-        
-        var velocity: (Int,Int)
-        var positions = [(0,0)]
-        
-        var highestAltitude: Int {
-            return positions.max(by: { $0.1 < $1.1 })!.1
-        }
-        
-        init(withVelocity velocity: (Int,Int)) {
-            self.velocity = velocity
-        }
-        
-        func move(towards target: TargetArea) -> Bool {
-            x += velocity.0
-            y += velocity.1
-            positions.append((x,y))
-            
-            let dX = velocity.0 < 0 ? 1 : -1 // towards 0
-            let newVelocityX = max(0, velocity.0 + dX)
-            let newVelocityY = velocity.1 - 1
-            self.velocity = (newVelocityX, newVelocityY)
-            
-            return isPastOrIn(target: target)
-        }
-        
-        private func isPastOrIn(target: TargetArea) -> Bool {
-            if target.contains((x,y)) {
-                return true
-            }
-            
-            // check X
-            let xDir = velocity.0
-            if xDir == 0 && !target.x.contains(x) {
-                return true
-            }
-            if xDir > target.x.max()! {
-                return true
-            }
-            
-            // check Y
-            if y < target.y.min()! {
-                return true
-            }
-            
-            return false
-        }
-    }
+    
 }
