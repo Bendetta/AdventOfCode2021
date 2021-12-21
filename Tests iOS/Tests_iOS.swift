@@ -410,11 +410,11 @@ class Tests_iOS: XCTestCase {
     
     func test_day21Part2Sample() {
         let value = day21().runPart2Sample()
-        XCTAssertEqual(value, 0)
+        XCTAssertEqual(value, 444356092776315)
     }
     
     func test_day21Part2Actual() {
         let value = day21().runPart2Actual()
-        XCTAssertEqual(value, 0)
+        XCTAssertEqual(value, 133029050096658)
     }
 }
