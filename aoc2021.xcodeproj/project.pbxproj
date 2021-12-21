@@ -125,6 +125,12 @@
 		2DEBA2EC27677F5B00DE9982 /* day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBA2EB27677F5B00DE9982 /* day13.swift */; };
 		2DEBA2ED27677F5B00DE9982 /* day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBA2EB27677F5B00DE9982 /* day13.swift */; };
 		2DEBA2EE27677F5B00DE9982 /* day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBA2EB27677F5B00DE9982 /* day13.swift */; };
+		2DFC4EDF27721B5800420846 /* day21.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DFC4EDE27721B5800420846 /* day21.txt */; };
+		2DFC4EE027721B5800420846 /* day21.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DFC4EDE27721B5800420846 /* day21.txt */; };
+		2DFC4EE127721B5800420846 /* day21.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DFC4EDE27721B5800420846 /* day21.txt */; };
+		2DFC4EE327721BA400420846 /* day21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC4EE227721BA400420846 /* day21.swift */; };
+		2DFC4EE427721BA400420846 /* day21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC4EE227721BA400420846 /* day21.swift */; };
+		2DFC4EE527721BA400420846 /* day21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC4EE227721BA400420846 /* day21.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +199,8 @@
 		2DEBA2E32767107400DE9982 /* day12.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day12.txt; sourceTree = "<group>"; };
 		2DEBA2E727677F4900DE9982 /* day13.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day13.txt; sourceTree = "<group>"; };
 		2DEBA2EB27677F5B00DE9982 /* day13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day13.swift; sourceTree = "<group>"; };
+		2DFC4EDE27721B5800420846 /* day21.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day21.txt; sourceTree = "<group>"; };
+		2DFC4EE227721BA400420846 /* day21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day21.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +272,7 @@
 				2D0DC8F02769069400DC6B03 /* day15.swift */,
 				2D0DC8FC276B8A3D00DC6B03 /* day16.swift */,
 				2D0DC904276CC32700DC6B03 /* day17.swift */,
+				2DFC4EE227721BA400420846 /* day21.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 				2D0DC8F4276906AB00DC6B03 /* day15.txt */,
 				2D0DC8F8276B89E700DC6B03 /* day16.txt */,
 				2D0DC900276CC2E100DC6B03 /* day17.txt */,
+				2DFC4EDE27721B5800420846 /* day21.txt */,
 			);
 			path = inputs;
 			sourceTree = "<group>";
@@ -461,6 +471,7 @@
 				2D0DC8F9276B89E800DC6B03 /* day16.txt in Resources */,
 				2DB1E5402763943D00D90C27 /* day10.txt in Resources */,
 				2D319762275E474B00D7ED33 /* day6.txt in Resources */,
+				2DFC4EDF27721B5800420846 /* day21.txt in Resources */,
 				2D0DC901276CC2E200DC6B03 /* day17.txt in Resources */,
 				2D9CB5A42757CE7600205E98 /* Assets.xcassets in Resources */,
 				2DEBA2E42767107400DE9982 /* day12.txt in Resources */,
@@ -486,6 +497,7 @@
 				2D0DC8FA276B89E800DC6B03 /* day16.txt in Resources */,
 				2DB1E5412763943D00D90C27 /* day10.txt in Resources */,
 				2D319763275E474C00D7ED33 /* day6.txt in Resources */,
+				2DFC4EE027721B5800420846 /* day21.txt in Resources */,
 				2D0DC902276CC2E200DC6B03 /* day17.txt in Resources */,
 				2D9CB5A52757CE7600205E98 /* Assets.xcassets in Resources */,
 				2DEBA2E52767107400DE9982 /* day12.txt in Resources */,
@@ -520,6 +532,7 @@
 				2D0DC8FB276B89E800DC6B03 /* day16.txt in Resources */,
 				2DB1E5422763943D00D90C27 /* day10.txt in Resources */,
 				2D319783275E611800D7ED33 /* day5.txt in Resources */,
+				2DFC4EE127721B5800420846 /* day21.txt in Resources */,
 				2DEBA2EA27677F4900DE9982 /* day13.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +554,7 @@
 				2D31975A275B4DAA00D7ED33 /* day5.swift in Sources */,
 				2D319772275E5D9A00D7ED33 /* Puzzle.swift in Sources */,
 				2D9CB5A22757CE7600205E98 /* ContentView.swift in Sources */,
+				2DFC4EE327721BA400420846 /* day21.swift in Sources */,
 				2D9CB5B52757CE9900205E98 /* day1.swift in Sources */,
 				2D319756275B30EC00D7ED33 /* day4.swift in Sources */,
 				2DEBA2DC2766AD3300DE9982 /* day11.swift in Sources */,
@@ -569,6 +583,7 @@
 				2D31975B275B4DAA00D7ED33 /* day5.swift in Sources */,
 				2D319773275E5D9A00D7ED33 /* Puzzle.swift in Sources */,
 				2D9CB5A32757CE7600205E98 /* ContentView.swift in Sources */,
+				2DFC4EE427721BA400420846 /* day21.swift in Sources */,
 				2D9CB5B62757CE9900205E98 /* day1.swift in Sources */,
 				2D319757275B30EC00D7ED33 /* day4.swift in Sources */,
 				2DEBA2DD2766AD3300DE9982 /* day11.swift in Sources */,
@@ -597,6 +612,7 @@
 				2D319779275E608A00D7ED33 /* day5.swift in Sources */,
 				2D319775275E608A00D7ED33 /* day1.swift in Sources */,
 				2D9CB5932757CE7600205E98 /* Tests_iOSLaunchTests.swift in Sources */,
+				2DFC4EE527721BA400420846 /* day21.swift in Sources */,
 				2D31977C275E60C500D7ED33 /* puzzleInputs.swift in Sources */,
 				2D319778275E608A00D7ED33 /* day4.swift in Sources */,
 				2DEBA2DE2766AD3300DE9982 /* day11.swift in Sources */,

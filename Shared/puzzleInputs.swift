@@ -302,6 +302,15 @@ CN -> C
         static let actual = Input.readFile("day17").trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
+    struct day21 {
+        static let sample = """
+Player 1 starting position: 4
+Player 2 starting position: 8
+""".splitLines()
+        
+        static let actual = Input.readFile("day21").splitLines()
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"
