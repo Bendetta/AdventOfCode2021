@@ -403,6 +403,22 @@ off x=-93533..-4276,y=-16170..68771,z=-104985..-24507
         static let actual = Input.readFile("day22").splitLines()
     }
     
+    struct day25 {
+        static let sample = """
+v...>>.vv>
+.vv>>.vv..
+>>.>v>...v
+>>v>>.>.v.
+v>v.vv.v..
+>.>>..v...
+.vv..>.>v.
+v.v..>>v.v
+....v..v.>
+""".splitLines()
+        
+        static let actual = Input.readFile("day25").splitLines()
+    }
+    
     static func readFile(_ name: String) -> String {
         let bundle = Bundle(for: InputMarker.self)
         let path = bundle.path(forResource: name, ofType: "txt") // file path for file "data.txt"

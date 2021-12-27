@@ -440,4 +440,16 @@ class Tests_iOS: XCTestCase {
         // Not working for actual data
         XCTAssertEqual(value, 610196)
     }
+    
+    // MARK: Day 25
+    
+    func test_day25Part1Sample() {
+        let value = day25().runPart1Sample()
+        XCTAssertEqual(value, 58)
+    }
+    
+    func test_day25Part1Actual() {
+        let value = day25().runPart1Actual()
+        XCTAssertEqual(value, 486)
+    }
 }
